@@ -24,16 +24,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./Portafolio
 
       - name: Build Next.js
         run: npm run build && npm run export
-        working-directory: ./Portafolio
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./Portafolio/out  # carpeta generada por "next export"
+          path: ./out   # carpeta generada por "next export"
 
   deploy:
     needs: build
